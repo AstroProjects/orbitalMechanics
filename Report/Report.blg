@@ -1,0 +1,22 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: Report.aux
+The style file: IEEEtran.bst
+Database file #1: IEEEabrv.bib
+Database file #2: PROYECTO_AEROPUERTOS-ANNEX.bib
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty journal in Standards2016
+Warning--empty author in 777
+Warning--empty journal in 777
+Warning--empty journal in Pavimentos
+Warning--empty year in Pavimentos
+Warning--empty author in A330
+Warning--empty journal in A330
+Warning--empty year in A330
+Warning--empty journal in 777200
+Warning--empty author in A320
+Warning--empty journal in A320
+Warning--empty year in A320
+
+Done.
+(There were 12 warnings)
