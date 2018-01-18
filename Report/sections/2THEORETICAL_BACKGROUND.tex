@@ -3,8 +3,47 @@
 
 
 \section{Planetary orbits and approximations analysis}
-
+In order to calculate the interplanetary trajectory between two planets, several approximations can be used. The simplest approximation, which can be called \textit{aprox. 0} accepts the following hypothesis: 
+\begin{itemize}
+\item Circular and coplanar orbits
+\item No analysis about the exit of the planet of start is done.
+\item No analysis about entering the planet of arrival is done. 
+\end{itemize} 
+\textit{Aprox. 0} is very basic and can be easily improved adding some parameters.\\
+Another approximation widely used is \textbf{Patched Conic Approximation (PCA)}. This method improves significantly the results obtained with \textit{aprox. 0} and represents a good starting point for a more precise numerical analysis of the mission. For this reason, in this project the PCA method will be used. 
 \subsection{Patched Conic Approximation (PCA)}
+The Patched Conic Approximation (PCA) consist on the evaluation of an interplanetary trajectory dividing it into three stages. Considering the Earth as the planet of start, this stages are: 
+\begin{itemize}
+\item Geocentric phase: Hyperbolic exit of the Earth. This phase takes place while the probe is going through the influence sphere of the Earth. 
+\item Heliocentric phase: Elliptic trajectory with the Sun as main influencer.
+\item Planet-centred phase: Hyperbolic arrival to the planet of destination. Similarly to the geocentric phase, this phase starts when the probe enters the sphere of influence of the planet. 
+\end{itemize}
+The influence spheres mentioned are the space close to the planets where it can be considered that the influence of the Sun is negligible in comparison with that of the planet in question. The Laplace criteria will be considered to calculate this sphere. In Table \ref{RIplanets} the radius of the sphere of influence of the solar system's planets are shown. 
+\begin{table}[H]
+\centering
+\begin{tabular}{|lccc|}
+\hline
+Planet  & $R_I\times 10^6 $km & $R_I\times 10^{-3} $ UA & $R_I$ Radius of the planet \\ \hline
+Mercury & 0.111                       & 0.740                        & 45                     \\
+Venus   & 0.616                       & 4.11                         & 100                    \\
+Earth   & 0.924                       & 6.16                         & 145                    \\
+Mars    & 0.577                       & 3.85                         & 170                    \\
+Jupiter & 48.157                      & 321.0                        & 677                    \\
+Saturn  & 54.796                      & 365.3                        & 901                    \\
+Uranus  & 91.954                      & 346.4                        & 2025                   \\
+Neptune & 80.196                      & 534.6                        & 3866                   \\ \hline
+\end{tabular}
+\caption{Radius of influence of the planets}
+\label{RIplanets}
+\end{table}
+In order to set out the problem and begin with the resolution of it using the PCA method, the times and positions of the planets at the beginning and end of the trajectory are needed and some hypothesis are taken under consideration. The hypothesis are: 
+\begin{itemize}
+\item The spheres of influences of the planets are not considered during the heliocentric phase. This hypothesis is admissible because the radius of the sphere are very small in comparison with the distance between planets.
+\item The spheres of influence are considered infinite from the point of view of the planet. This is assumed due to the fact that the radius of influence of the planets are much larger than the radious of the planet itself, as can be seen in Tabl \ref{RIplanets}.
+\item The duration of the trajectory can be taken as the duration of the heliocentric phase. 
+\end{itemize}
+ With this data the trajectory can be found through the orbital elements of the trajectories and the thrust required. 
+
 \input{./sections/THEORETICAL_BACKGROUND/1stStage}
 \input{./sections/THEORETICAL_BACKGROUND/2ndStage}
 \input{./sections/THEORETICAL_BACKGROUND/3rdStage} 
