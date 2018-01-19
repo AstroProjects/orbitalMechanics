@@ -22,22 +22,26 @@ inc=atand(tan(beta2)/sin(dLamb)); %[º]
 dTheta=acosd(cos(dLamb)*cos(beta2)); %[º]
 
 %Omega calculation (longitud del node ascendent)
-Omega=radtodeg(rT_t1(2));
+Omega=atand(rT_t1(2)/rT_t1(1)); %[º]
 
 if eliptic == true
     disp('Computing eliptic trajectory...');
     %It has been considered that the equations work in degrees, but it is not sure...
-[e, a, theta1]=Computeeliptic(rT_t1(1),rM_t2(1),dt,dTheta); 
+    [e, a, theta1]=Computeeliptic(rT_t1(1),rM_t2(1),dt,dTheta);
     if theta1>=360.001
         disp('No theta possible');
     end
 else
     disp('Computing hyperbolic trajectory...');
     %It has been considered that the equations work in degrees, but it is not sure...
-  [e, a, theta1]=Computehyperbolic(rT_t1(1),rM_t2(1),dt,dTheta);
+    [e, a, theta1]=Computehyperbolic(rT_t1(1),rM_t2(1),dt,dTheta);
+    if theta1>=360.001
+        disp('No theta possible');
+    end
 end
 %argument del periheli(omega)
 omega=-theta1;
+
 
 
 

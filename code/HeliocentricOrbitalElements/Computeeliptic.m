@@ -9,7 +9,7 @@ while (error>10) && (theta1<=360.001)
         e=(r2-r1)/(r1*cosd(theta1)-r2*cosd(theta1+dThet));
         if (e>=0) && (e<1) %Check that the orbit is eliptic
             % Semieix
-            a=(r1*(1+e*cosd(theta1)))/(e^2-1);
+            a=(r1*(1+e*cosd(theta1)))/(1-e^2);
             %Temps de viatge
             t2t1=(365.25/(2*pi))*(a^(3/2))*(2*atand(sqrt((1-e)/(1+e))*tand((theta1+dThet)/2))...
                 -((e*sqrt(1-e^2)*sind(theta1+dThet))/(1+e*cosd(theta1+dThet)))...
