@@ -14,8 +14,8 @@ eliptic=true;
 
 %Calcul inclinació i (named 'in' because 'i' is usually used when doing
 %iterations) (equacions pag. 14 tema5b)
-dLamb=rM_t2(2)-rT_t1(2);
-beta2=rM_t2(3);
+dLamb=atan(rM_t2(2)/rM_t2(1))-atan(rT_t1(2)/rT_t1(1));
+beta2=asin(rM_t2(3)/norm(rM_t2));
 inc=atand(tan(beta2)/sin(dLamb)); %[º]
 
 %Calcul increment the theta (equacions pag. 14 tema5b)
