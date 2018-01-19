@@ -1,0 +1,26 @@
+*********************************************
+* asteroid/comet classical orbital elements *
+* (heliocentric, Earth mean ecliptic J2000) *
+*********************************************
+
+asteroid/comet name
+Tempel 1
+
+TDB calendar date of perihelion passage (month, day, year)
+7, 5.3153, 2005
+
+perihelion distance (au)
+1.506167
+
+orbital eccentricity (non-dimensional)
+0.517491
+
+orbital inclination (degrees)
+10.5301
+
+argument of perihelion (degrees)
+178.8390
+
+longitude of the ascending node (degrees)
+68.9734
+

@@ -1,0 +1,27 @@
+*********************************************
+* asteroid/comet classical orbital elements *
+* (heliocentric, Earth mean ecliptic J2000) *
+*********************************************
+
+asteroid/comet name
+Apophis
+
+TDB calendar date of perihelion passage (month, day, year)
+7, 7.7916361, 2006
+
+perihelion distance (au)
+0.746181335756689d0
+
+orbital eccentricity (non-dimensional)
+0.191040045028495d0
+
+orbital inclination (degrees)
+3.3312246020718d0
+
+argument of perihelion (degrees)
+126.355735172394d0
+
+longitude of the ascending node (degrees)
+204.462210660602d0
+
+
