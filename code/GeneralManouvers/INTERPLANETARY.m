@@ -1,27 +1,83 @@
-clc; clear; close all;
-%% INTERPLANETARY
-%{
-Spacecraft trajectory form SOI of planet1 to that of planet 2
-%}
-%% INPUT DATA
-% Define input data files
-NAME_INPUT_DATA = 'EarthMars2' ;
-% Load data files
-eval(NAME_INPUT_DATA);
-
-%% PLANETARY DEPARTURE
-%hyperbolic excess speed
-v_inf = sqrt(Sun.mu/O.R_dp)*(sqrt((2*O.R_ap)/(O.R_dp + O.R_ap))-1); %[km/s]
-
-%Space craft speed on circular parking orbit
-vc = sqrt(DP.mu/(DP.R + SC.r0)); %[km/s]
-
-%delta-v to step up to the departue hyperbola
-delta_v = vc*(sqrt(2+(v_inf/vc)^2)-1); %[km/s]
-
-%perigee of departure hyperbola
-rp = DP.R + SC.r0;
-beta = acosd(1/(1+(rp*v_inf^2/DP.mu))); %[º]
-
-%Propellant percent of spacecraft mass
-perc_mp = 1 - exp(-delta_v/(SC.Isp*SC.g0)); %tan per one
+% ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜
+function [planet1, planet2, trajectory] = interplanetary ...
+(depart, arrive)
+% ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜
+%
+% This function determines the spacecraft trajectory from the
+% sphere of influence of planet 1 to that of planet 2 using
+% Algorithm 8.2.
+%
+% mu - gravitational parameter of the sun (kmˆ3/sˆ2)
+% dum - a dummy vector not required in this procedure
+%
+% planet_id - planet identifier:
+% 1 = Mercury
+% 2 = Venus
+% 3 = Earth
+% 4 = Mars
+% 5 = Jupiter
+% 6 = Saturn
+% 7 = Uranus
+% 8 = Neptune
+% 9 = Pluto
+%
+% year - range: 1901 - 2099
+% month - range: 1 - 12
+% day - range: 1 - 31
+% hour - range: 0 - 23
+% minute - range: 0 - 60
+% second - range: 0 - 60
+%
+% jd1, jd2 - Julian day numbers at departure and arrival
+% tof - time of flight from planet 1 to planet 2 (s)
+%
+% Rp1, Vp1 - state vector of planet 1 at departure (km, km/s)
+% Rp2, Vp2 - state vector of planet 2 at arrival (km, km/s)
+% R1, V1 - heliocentric state vector of spacecraft at
+% departure (km, km/s)
+% R2, V2 - heliocentric state vector of spacecraft at
+% arrival (km, km/s)
+%
+% depart - [planet_id, year, month, day, hour, minute,
+% second] at departure
+% arrive - [planet_id, year, month, day, hour, minute,
+% second] at arrival
+% planet1 - [Rp1, Vp1, jd1]
+% planet2 - [Rp2, Vp2, jd2]
+% trajectory - [V1, V2]
+%
+% User M-functions required: planet_elements_and_sv, lambert
+% ------------------------------------------------------------
+global mu
+planet_id = depart(1);
+year = depart(2);
+month = depart(3);
+day = depart(4);
+hour = depart(5);
+minute = depart(6);
+second = depart(7);
+%...Use Algorithm 8.1 to obtain planet 1's state vector (don't
+%...need its orbital elements [''dum'']):
+[dum, Rp1, Vp1, jd1] = planet_elements_and_sv...
+(planet_id, year, month, day, hour, minute, second);
+planet_id = arrive(1);
+year = arrive(2);
+month = arrive(3);
+day = arrive(4);
+hour = arrive(5);
+minute = arrive(6);
+second = arrive(7);
+%...Likewise use Algorithm 8.1 to obtain planet 2’s state vector:
+[dum, Rp2, Vp2, jd2] = planet_elements_and_sv(planet_id, year, month,...
+    day, hour, minute, second);
+tof = (jd2 - jd1)*24*3600;
+%...Patched conic assumption:
+R1 = Rp1;
+R2 = Rp2;
+%...Use Algorithm 5.2 to find the spacecraft’s velocity at
+% departure and arrival, assuming a prograde trajectory:
+[V1, V2] = lambert_solv(R1, R2, tof, 'pro');
+planet1 = [Rp1, Vp1, jd1];
+planet2 = [Rp2, Vp2, jd2];
+trajectory = [V1, V2];
+% ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜
