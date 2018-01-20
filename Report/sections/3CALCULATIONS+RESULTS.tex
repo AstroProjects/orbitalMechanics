@@ -1,5 +1,279 @@
 \chapter{Calculations and results}
 
-\section{Verification calculations}
+\section{Verification}
+In order to verify the code the examples shown at reference \cite{treballsMO} REFERENCIA INCOGNITA XXXX will be used. In this section the results provided for every example will be exposed together with the results obtained using the code developed for this project and conclusions will be extracted.
+\subsection{From Earth to Mars using an elliptic heliocentric trajectory}
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Departure date              & 2020 Jul 19                \\ 
+Arrival date                & 2021 Gen 25                \\ 
+$\Delta$t                    & 190 days                   \\ 
+$r_1$                          & (0.4537, -0.9094, 0.0000)  \\ 
+$r_2$                          & (0.3148, 1.5078, 0.0239)   \\ \hline
+\end{tabular}
+\caption{Data provided by the first example}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Semimajor axis                          & 1.33069 AU      \\ 
+Eccentricity                           & 0.23629         \\ 
+$\theta _0$                     & 359.621\degree                 \\ 
+$\omega$                           & 0.470\degree                                 \\ 
+Inclination                          & 1.435\degree                             \\ 
+$\Omega$                & 296.424º                   \\ 
+Heliocentric velocity at departure (km/s) & (29.3678, 14.6982, 0.8229) \\ 
+Heliocentric velocity at arrival (km/s) & (20.4069,8.2271,0.3656)    \\
+\hline
+\end{tabular}
+\caption{Results provided by the first example}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Semimajor axis                          & 1.3307 AU      \\ 
+Eccentricity                           & 0.2363         \\ 
+$\theta _0$                     &                   \\
+$\omega$                           & 0.3880\degree                            \\ 
+Inclination                          & 1.4339\degree                             \\ 
+$\Omega$                & 296.5149\degree                                   \\ 
+Heliocentric velocity at departure (km/s) & \\ 
+Heliocentric velocity at arrival (km/s)&    \\
+\hline
+\end{tabular}
+\caption{Results computed by the code developed for the first example}
+\end{table}
+\subsection{Mars to Jupiter using an elliptic heliocentric trajectory}
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Departure date              & 2026 Jun 05                \\ 
+Arrival date                & 2029 April 25                \\ 
+$\Delta$t                    & 1055 days                   \\ 
+$r_1$                          & (1.3277, 0.4901, 0.0223)  \\ 
+$r_2$                          & (5.0135, 2.1380, 0.0505)   \\ \hline
+\end{tabular}
+\caption{Data provided by the second example}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Semimajor axis                          & 3.45403 AU      \\ 
+Eccentricity                           & 0.59218         \\ 
+$\theta _0$                     & 350.769\degree                 \\ 
+$\omega$                           & 182.312\degree                                 \\ 
+Inclination                          & 7.513\degree                             \\ 
+$\Omega$                & 207.121º                   \\ 
+Heliocentric velocity at departure (km/s) & (12.5324, 28.6817, 4.1200) \\ 
+Heliocentric velocity at arrival (km/s) & (1.9715,7.9799,1.0552)    \\
+\hline
+\end{tabular}
+\caption{Results provided by the second example}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Semimajor axis                          &      \\ 
+Eccentricity                           &        \\ 
+$\theta _0$                     &                   \\
+$\omega$                           & \degree                            \\ 
+Inclination                          & 7.5084\degree                             \\ 
+$\Omega$                & \degree                                   \\ 
+Heliocentric velocity at departure (km/s) & \\ 
+Heliocentric velocity at arrival (km/s)&    \\
+\hline
+\end{tabular}
+\caption{Results computed by the code developed for the second example}
+\end{table}
+\subsection{Earth to Mars using an hyperbolic heliocentric trajectory}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Departure date              & 2020 Mar 06                \\ 
+Arrival date                & 2020 Jun 09 \\ 
+$\Delta$t                    & 95 days                   \\ 
+$r_1$                          & (-0.9609, 0.2466, 0.0000)  \\ 
+$r_2$                          & (0.7285, -1.1980,-0.0430)   \\ \hline
+\end{tabular}
+\caption{Data provided by the third example}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Semimajor axis         & 71.08581 AU      \\ 
+Eccentricity                           & 1.01113         \\ 
+$\theta _0$                     & -53.310\degree                 \\ 
+$\omega$                           & 233.297\degree                                 \\ 
+Inclination                          & 2.513\degree                             \\ 
+$\Omega$                & 345.619º                   \\ 
+Heliocentric velocity at departure (km/s) & (9.1364, -41.4090, -1.6612) \\ 
+Heliocentric velocity at arrival (km/s) & (35.1754,-6.3201,0.1148)    \\
+\hline
+\end{tabular}
+\caption{Results provided by the third example}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Semimajor axis                          &      \\ 
+Eccentricity                           &        \\ 
+$\theta _0$                     &                   \\
+$\omega$                           & \degree                            \\ 
+Inclination                          & \degree                             \\ 
+$\Omega$                & 345.6066\degree                                   \\ 
+Heliocentric velocity at departure (km/s) & \\ 
+Heliocentric velocity at arrival (km/s)&    \\
+\hline
+\end{tabular}
+\caption{Results computed by the code developed for the third example}
+\end{table}
 
 \section{Main interplanetary orbit calculations}
+The cases proposed in reference \ref{treballsMO} REFERENCIA INCOGNITA XXX will be solved. 
+\subsection{Case 1: Mars to Jupiter}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Departure date              & 2037 Oct 25                \\ 
+Arrival date                & 2039 Oct 15 \\ 
+$\Delta$t                    & 720 days                   \\ 
+$r_1$                          & (1.0707, 0.9868, 0.0055)  \\ 
+$r_2$                          & (5.2210, 1.4357,0.1109)   \\ \hline
+\end{tabular}
+\caption{Data provided for case 1}
+\end{table}
+
+\subsection{Case 2: Earth to Mars}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Departure date              & 2033 Mar 13                \\ 
+Arrival date                & 2033 Aug 05 \\ 
+$\Delta$t                    & 145 days                   \\ 
+$r_1$                          & (0.9848, 0.1338, 0.0000)  \\ 
+$r_2$                          & (0.6797, 1.2298,0.0424)   \\ \hline
+\end{tabular}
+\caption{Data provided for case 2}
+\end{table}
+\subsection{Case 3: Earth to Mars}
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Departure date              & 2031 Jan 23                \\ 
+Arrival date                & 2031 Aug 01 \\ 
+$\Delta$t                    & 190 days                   \\ 
+$r_1$                          & (0.5264, 0.8316, 0.0001)  \\ 
+$r_2$                          & (0.0108, 1.4542,0.0309)   \\ \hline
+\end{tabular}
+\caption{Data provided for case 3}
+\end{table}
+
+\subsection{Case 4: Earth to Mars}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Departure date              & 2025 Jul 18                \\ 
+Arrival date                & 2025 Oct 21 \\ 
+$\Delta$t                    & 95 days                   \\ 
+$r_1$                          & (0.4342, 0.9188, 0.0001)  \\ 
+$r_2$                          & (0.6775, 1.3571,0.0118)   \\ \hline
+\end{tabular}
+\caption{Data provided for case 4}
+\end{table}
+
+\subsection{Case 5: Earth to Venus}
+ \begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Departure date              & 2023 May 27                \\ 
+Arrival date                & 2023 Nov 01 \\ 
+$\Delta$t                    & 158 days                   \\ 
+$r_1$                          & (-0.4255, -0.9194, 0.0000)  \\ 
+$r_2$                          & (0.0356, 0.7189,0.0079)   \\ \hline
+\end{tabular}
+\caption{Data provided for case 5}
+\end{table}
+
+\subsection{Case 6: Mars to Earth}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Departure date              & 2033 Jan 18                \\ 
+Arrival date                & 2033 Aug 28 \\ 
+$\Delta$t                    & 222 days                   \\ 
+$r_1$                          & (1.5831, 0.3913, 0.0306)  \\ 
+$r_2$                          & (0.9123, 0.4340,0.0000)   \\ \hline
+\end{tabular}
+\caption{Data provided for case 6}
+\end{table}
+\subsection{Case 7: Mars to Earth}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Departure date              & 2030 Nov 20                \\ 
+Arrival date                & 2031 Jul 06 \\ 
+$\Delta$t                    & 228 days                   \\ 
+$r_1$                          & (1.4166, 0.8722, 0.0530)  \\ 
+$r_2$                          & (0.2345, 0.9893,0.0001)   \\ \hline
+\end{tabular}
+\caption{Data provided for case 7}
+\end{table}
+
+\subsection{Case 8: Earth to Mars (hyperbolic)}
+ \begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Departure date              & 2021 Nov 26                \\ 
+Arrival date                & 2022 Feb 19 \\ 
+$\Delta$t                    & 85 days                   \\ 
+$r_1$                          & (0.4383, 0.8843, 0.0000)  \\ 
+$r_2$                          & (-0.2082, -1.4582,-0.0255)   \\ \hline
+\end{tabular}
+\caption{Data provided for case 8}
+\end{table}
+
+\subsection{Case 9: Earth to Mars (hyperbolic)}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Departure date              & 2022 Jan 15                \\ 
+Arrival date                & 2022 Apr 20 \\ 
+$\Delta$t                    & 95 days                   \\ 
+$r_1$                          & (-0.4079, 0.8950, 0.0000)  \\ 
+$r_2$                          & (0.6393, -1.2542,-0.0420)   \\ \hline
+\end{tabular}
+\caption{Data provided for case 9}
+\end{table}

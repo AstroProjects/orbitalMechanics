@@ -6,11 +6,11 @@ Methode imposes: t1, t2
 %}
 %% INPUT DATA
 % Define input data files
-NAME_INPUT_DATA = 'MarsJupiter1' ;
+NAME_INPUT_DATA = 'EarthMars2' ;
 % Load data files
 eval(NAME_INPUT_DATA);
 %Define type of trajectory (eliptic or hiperbolic)
-eliptic=true;
+eliptic=false;
 %For the hyperbolic case, define if inclination has result positive or
 %negative
 ipositive=true;
