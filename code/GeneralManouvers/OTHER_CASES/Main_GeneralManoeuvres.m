@@ -23,3 +23,6 @@ delta_v = vc*(sqrt(2+(v_inf/vc)^2)-1); %[km/s]
 %perigee of departure hyperbola
 rp = DP.R + SC.r0;
 beta = acosd(1/(1+(rp*v_inf^2/DP.mu))); %[º]
+
+%Propellant percent of spacecraft mass
+perc_mp = 1 - exp(-delta_v/(SC.Isp*SC.g0)); %tan per one

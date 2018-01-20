@@ -1,8 +1,10 @@
 %% INTERPLANETARY DATA
 %Departure, Arrival and delta t
-t1 = [19, 7, 2020]; %day, month, year
-t2 = [25, 1, 2021]; %day, month, year
-dt = 190; %days
+t1 = [05, 6, 2026]; %day, month, year
+t2 = [25, 4, 2029]; %day, month, year
+dt = 1055; %days
+%time of flight
+tof = dt*24*3600; %[s]
 
 dLamb0 = 29.837; %[º]
 dThet0 = 141.683;%[º]
@@ -19,6 +21,9 @@ SC.r0 = 300; %[km]
 SC.t0 = 0;
 SC.v0 = 10.84; %[km/s]
 SC.lamb = 37.5; %[º]
+SC.Isp = 300; %[s]
+SC.g0 = 9.81e-3; %[km/s^2]
+
 
 %Earth
 DP.R = 6371; %[km]
