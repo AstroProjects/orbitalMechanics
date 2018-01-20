@@ -6,7 +6,7 @@ Methode imposes: t1, t2
 %}
 %% INPUT DATA
 % Define input data files
-NAME_INPUT_DATA = 'EarthMars1' ;
+NAME_INPUT_DATA = 'MarsJupiter1' ;
 % Load data files
 eval(NAME_INPUT_DATA);
 %Define type of trajectory (eliptic or hiperbolic)
@@ -26,30 +26,26 @@ dLamb=lambda2-lambda1; %[rad]
 
 
 
-%Inclination, dTheta and Omega calculation (depending on beta1)
-if beta1 == 0 %(pag14 t5b)
-    inc=atand(tan(beta2)/sin(dLamb)); %[º]
-    dTheta=acosd(cos(dLamb)*cos(beta2)); %[º]
-    Omega=radtodeg(lambda1); %[º]
-    if Omega<0
-        Omega=360+Omega;  %Change to a positive angle
-    end
-else %(pag18 t5b)
-    dTheta=acosd(sin(beta1)*sin(beta2)+cos(beta1)*cos(beta2)*cos(dLamb)); %[º]
-    A=asin( (cos(beta2)*sin(dLamb))/sind(dTheta)); %[rad]
-    inc=acosd( sin(A)*cos(beta1) ); %[º]
-    if inc<0
-        ipositive=false;
-        inc=abs(inc);
-    end
-    L=asin( tan(beta1)/tand(inc) ); %[rad]
-    sigma=atan( tan(beta1)/cos(A) ); %[rad]
-    Omega=lambda1-L;%[rad]
-    if ipositive == false
-        Omega=Omega+pi;
-    end
-    Omega=radtodeg(Omega); %[º]
+%Inclination, dTheta and Omega calculation (general case, page 18 t5b)
+dTheta=acosd(sin(beta1)*sin(beta2)+cos(beta1)*cos(beta2)*cos(dLamb));%[º]
+A=asin(cos(beta2)*sin(dLamb)/sind(dTheta)); %[rad]
+inc=acosd(sin(A)*cos(beta1)); %[º]
+if inc<0
+    ipositive=false;
+    inc=abs(inc);
 end
+L=asin(tan(beta1)/tand(inc));%[rad]
+sigma=atan(tan(beta1)/cos(A));%[rad]
+Omega=lambda1-L; %[rad]
+if ipositive == false
+    Omega=pi+Omega;
+end
+Omega=radtodeg(Omega);
+if Omega<0
+    Omega=360+Omega;
+end
+
+
 
 %Calculation of e, a and theta1 (eliptic or hyperbolic)
 if eliptic == true
@@ -70,20 +66,10 @@ else
     end
 end
 
-%Calculation of omega
-if beta1 == 0 %(pag14 t5b)
-    omega=-theta1;
-    if omega<0
-        omega=omega+360;
-    end
-else %(pag18 t5b)
-    omega=2*pi-(degtorad(theta1)-sigma); %[rad]
-    if ipositive == false
-        omega=omega+pi;
-    end
-    omega=radtodeg(omega);
-    if omega<0
-        omega=omega+360;
-    end
+omega=2*pi-(degtorad(theta1)-sigma); %[rad]
+if ipositive == false
+    omega=pi+omega
 end
+omega=radtodeg(omega);
+
 
