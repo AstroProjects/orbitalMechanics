@@ -1,12 +1,11 @@
 clc; clear; close all;
-%% GENERAL MANOEUVRES
+%% INTERPLANETARY
 %{
-We want to find: Omega, i, omega, a, e theta 1
-Methode imposes: t1, t2
+Spacecraft trajectory form SOI of planet1 to that of planet 2
 %}
 %% INPUT DATA
 % Define input data files
-NAME_INPUT_DATA = 'EarthMars1' ;
+NAME_INPUT_DATA = 'EarthMars2' ;
 % Load data files
 eval(NAME_INPUT_DATA);
 

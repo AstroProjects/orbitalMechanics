@@ -3,6 +3,8 @@
 t1 = [19, 7, 2020]; %day, month, year
 t2 = [25, 1, 2021]; %day, month, year
 dt = 190; %days
+%time of flight
+tof = 190*24*3600; %[s]
 
 dLamb0 = 29.837; %[º]
 dThet0 = 141.683;%[º]
