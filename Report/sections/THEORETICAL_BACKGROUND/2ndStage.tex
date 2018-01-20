@@ -68,9 +68,10 @@ e=\frac{r_2-r_1}{r_1\cos\theta _1-r_2\cos(\theta_1+\Delta\theta)}
 \begin{equation}
 a=\frac{r_1\left(1+e\cos\theta _1\right)}{1-e^2}
 \end{equation}
-\begin{equation}
-t_2-t_1=\frac{365.25}{2\pi}a^\frac{3}{2}\Bigg(2\arctan\bigg(\sqrt{\frac{1-e}{1+e}}\tan\frac{\theta _1 +\Delta\theta}{2}\bigg)-\frac{e\sqrt{1-e^2}\sin (\theta _1+\Delta\theta)}{1+e\cos (\theta _1+\Delta\theta}-2\arctan\bigg(\sqrt{\frac{1-e}{1+e}}\tan \frac{\theta _1}{2}\bigg)+\frac{e\sqrt{1-e^2}\sin \theta _1}{1+e\cos \theta1}\Bigg)
-\end{equation}
+\begin{multline}
+t_2-t_1=\frac{365.25}{2\pi}a^\frac{3}{2}\Bigg(2\arctan\bigg(\sqrt{\frac{1-e}{1+e}}\tan\frac{\theta _1 +\Delta\theta}{2}\bigg)\\-\frac{e\sqrt{1-e^2}\sin (\theta _1+\Delta\theta)}{1+e\cos (\theta _1+\Delta\theta}-2\arctan\bigg(\sqrt{\frac{1-e}{1+e}}\tan \frac{\theta _1}{2}\bigg)+\frac{e\sqrt{1-e^2}\sin \theta _1}{1+e\cos \theta1}\Bigg)
+\end{multline}
+
 The iteration process done to solve the equations will deal with the difference between the time of the mission calculated and the real time of the mission, that is a known value. An error criteria $\epsilon$ is defined as the convergence value. The flow chart of this iteration is shown in Figure \ref{Floweliptic}.
 \begin{figure}[H]
 \centering
@@ -85,9 +86,9 @@ e=\frac{r_2-r_1}{r_1\cos\theta _1-r_2\cos(\theta_1+\Delta\theta)}
 \begin{equation}
 a=\frac{r_1\left(1+e\cos\theta _1\right)}{e^2-1}
 \end{equation}
-\begin{equation}
-t_2-t_1=\frac{365.25}{2\pi}a^\frac{3}{2}\Bigg(\frac{e\sqrt{e^2-1}\sin (\theta _1 +\Delta\theta}{1+e\cos (\theta _1+\Delta\theta}-ln\left| \frac{\tan \frac{\theta _1 +\Delta\theta}{2}+\sqrt{\frac{e+1}{e-1}}}{\tan \frac{\theta _1 +\Delta\theta}{2}-\sqrt{\frac{e+1}{e-1}}}\right|-\frac{e\sqrt{e^2-1}\sin \theta _1}{1+e\cos \theta _1}+ln\left| \frac{\tan \frac{\theta _1}{2}+\sqrt{\frac{e+1}{e-1}}}{\tan \frac{\theta _1}{2}-\sqrt{\frac{e+1}{e-1}}}\right|
-\end{equation}
+\begin{multline}
+t_2-t_1=\frac{365.25}{2\pi}a^\frac{3}{2}\Bigg(\frac{e\sqrt{e^2-1}\sin (\theta _1 +\Delta\theta)}{1+e\cos (\theta _1+\Delta\theta)}-ln\left| \frac{\tan \frac{\theta _1 +\Delta\theta}{2}+\sqrt{\frac{e+1}{e-1}}}{\tan \frac{\theta _1 +\Delta\theta}{2}\\-\sqrt{\frac{e+1}{e-1}}}\right|-\frac{e\sqrt{e^2-1}\sin \theta _1}{1+e\cos \theta _1}+ln\left| \frac{\tan \frac{\theta _1}{2}+\sqrt{\frac{e+1}{e-1}}}{\tan \frac{\theta _1}{2}-\sqrt{\frac{e+1}{e-1}}}\right|\Bigg)
+\end{multline}
 The resolution is similar to that of the elliptic case, but the acceptable values of the eccentricity change. The flow chart is shown in Figure \ref{Flowhyp}.
 \begin{figure}[H]
 \centering
