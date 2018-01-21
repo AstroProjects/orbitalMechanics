@@ -7,7 +7,7 @@ Methode imposes: t1, t2
 %% INPUT DATA
 % Define input data files
 addpath('cases');
-NAME_INPUT_DATA = 'EarthMarsC2' ;
+NAME_INPUT_DATA = 'EarthVenusC5' ;
 % Load data files
 eval(NAME_INPUT_DATA);
 %Define type of trajectory (eliptic or hiperbolic)

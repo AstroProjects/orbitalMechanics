@@ -6,7 +6,7 @@ Spacecraft trajectory form SOI of planet1 to that of planet 2
 %% INPUT DATA
 % Define input data files
 addpath('cases');
-NAME_INPUT_DATA = 'EarthMarsC2' ;
+NAME_INPUT_DATA = 'EarthMarsC3' ;
 % Load data files
 eval(NAME_INPUT_DATA);
 
@@ -48,7 +48,7 @@ vinf2 = V2 - Vp2;
 %...Echo the input data and output the solution to
 % the command window:
 fprintf('---------------------------------------------------')
-fprintf('\n Example 8.8')
+fprintf('\n RESULTS')
 fprintf('\n\n Departure:\n');
 [month_name, planet_name] = month_planet_names(depart(3), ...
 depart(1));
