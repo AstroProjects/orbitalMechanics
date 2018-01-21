@@ -85,7 +85,7 @@ fprintf('\n\na = %g AU;\te = %g;\ttheta_0 = %g deg;\nw = %g deg;\ti = %g deg;\tW
     a,e,theta1,omega,inc,Omega);
 
 %% Heliocentric velocities
-method=2;
+method=1;
 if method==2
     %using the 2nd method described in tema2 (pg59)
     cO=cosd(Omega); sO=sind(Omega);
@@ -103,6 +103,40 @@ if method==2
     r1bis=p/(1+e*cosd(theta1))*(cosd(theta1)*P+sind(theta1)*Q);
     r2bis=p/(1+e*cosd(theta1+dTheta))*(cosd(theta1+dTheta)*P+sind(theta1+dTheta)*Q);
 elseif method==1
+    %compute M: see T2 pg18 & pg29 NOT REALLY necessary..... :(
+    Meli= @(e,th) 2*atan((tand(th/2)*sqrt((e+1)/(e-1))))-...
+          (e*sqrt(1-e^2)*sind(th))/(1+e*cosd(th));
+    Mhyp = @(e,th) sqrt(e^2-1)*(e*sind(th)/(1+e*cosd(th))-1/sqrt(e^2-1)*...
+          log((tand(th/2)+sqrt((e+1)/(e-1)))/(tand(th/2)-sqrt((e+1)/(e-1)))));
+    if eliptic
+        M1=Meli(e,theta1);
+        M2=Meli(e,theta1+dTheta);
+    else
+        M1=Mhyp(e,theta1);
+        M2=Mhyp(e,theta1+dTheta);
+    end
+    %prev vars
+    p=a*(e^2-1);
+    if eliptic; p=-p; end
+    r = @(th) p*1.496e11/(1+cos(th));   u = @(th) omega+th;
+    cO=cosd(Omega); sO=sind(Omega);
+    ci=cosd(inc); si=sind(inc);
+    
+    r1bis=r(theta1)/1.496e11*[cO*cosd(u(theta1))-sO*ci*sind(u(theta1)) ...
+        sO*cosd(u(theta1))+cO*ci*sind(u(theta1)) si*sind(u(theta1))];
+    r2bis=r(theta1+dTheta)/1.496e11*[cO*cosd(u(theta1+dTheta))-sO*ci*sind(u(theta1+dTheta)) ...
+        sO*cosd(u(theta1+dTheta))+cO*ci*sind(u(theta1+dTheta)) si*sind(u(theta1+dTheta))];
+    
+    v1=r1bis*e/r(theta1)*sqrt(muS/(p*1.496e11))*sind(theta1)+r(theta1)*...
+        [-cO*sind(u(theta1))-sO*ci*cosd(u(theta1))...
+        -sO*sind(u(theta1))+cO*ci*cosd(u(theta1))...
+        si*cosd(u(theta1))]*sqrt(muS*(p*1.496e11))/r(theta1)^2;
+    v2=r2bis*e/r(theta1+dTheta)*sqrt(muS/(p*1.496e11))*sind(theta1+dTheta)+r(theta1+dTheta)...
+        *[-cO*sind(u(theta1+dTheta))-sO*ci*cosd(u(theta1+dTheta))...
+        -sO*sind(u(theta1+dTheta))+cO*ci*cosd(u(theta1+dTheta))...
+        si*cosd(u(theta1+dTheta))]*sqrt(muS*(p*1.496e11))/r(theta1+dTheta)^2;
+    v1=v1/1e3;
+    v2=v2/1e3;
 end
     
 
