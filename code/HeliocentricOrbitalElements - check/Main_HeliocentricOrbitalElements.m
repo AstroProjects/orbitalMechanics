@@ -34,8 +34,8 @@ dLamb=zeroto2pi(lambda2-lambda1); %[rad]
 %% Inclination, dTheta and Omega calculation (general case, page 18 t5b)
 dTheta=acosd(sin(beta1)*sin(beta2)+cos(beta1)*cos(beta2)*cos(dLamb));%[º]
 A=asin(cos(beta2)*sin(dLamb)/sind(dTheta)); %[rad]
-inc=acosd(sin(A)*cos(beta1))*beta2/abs(beta2); %[º] multiplied by the sign 
-                                  %of beta2 because if beta2<0, then i<0
+inc=acosd(sin(A)*cos(beta1))*(beta2-beta1)/abs(beta2-beta2); %[º] multiplied by the sign 
+                                               %of incbeta because if incbeta<0, then i<0
 if inc<0
     Omega=pi;
     omega=pi;
@@ -79,5 +79,5 @@ omega=radtodeg(omega);
 
 
 %% PRINT
-fprintf('a = %g AU;\te = %g;\ttheta_0 = %g deg;\nw = %g deg;\ti = %g deg;\tW = %g deg',...
+fprintf('\n\na = %g AU;\te = %g;\ttheta_0 = %g deg;\nw = %g deg;\ti = %g deg;\tW = %g deg\n',...
     a,e,theta1,omega,inc,Omega);
