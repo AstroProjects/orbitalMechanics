@@ -41,9 +41,6 @@ if inc<0
     omega=pi;
     inc=abs(inc); 
 end
-if inc > 90
-    inc = 180 - inc;
-end
 L=asin(tan(beta1)/tand(inc));%[rad] 
 sigma=atan(tan(beta1)/cos(A));%[rad]
 Omega=Omega+lambda1-L; %[rad]
@@ -52,6 +49,9 @@ if Omega<0
     Omega=360+Omega;
 end
 
+if inc > 90
+    inc = 180 - inc;
+end
 
 
 %% Calculation of e, a and theta1 (eliptic or hyperbolic)
