@@ -13,7 +13,7 @@ eval(NAME_INPUT_DATA);
 eliptic=false;
 %For the hyperbolic case, define if inclination has result positive or
 %negative
-ipositive=true;
+ipositive=true; 
 
 %Initial calculation with r vector (pag30 t5b):
 r1=norm(rT_t1);
@@ -23,7 +23,6 @@ beta2=asin(rM_t2(3)/r2); %[rad]
 lambda1=atan(rT_t1(2)/rT_t1(1)); %[rad]
 lambda2=atan(rM_t2(2)/rM_t2(1)); %[rad]
 dLamb=lambda2-lambda1; %[rad]
-
 
 
 %Inclination, dTheta and Omega calculation (general case, page 18 t5b)
@@ -44,8 +43,6 @@ Omega=radtodeg(Omega);
 if Omega<0
     Omega=360+Omega;
 end
-
-
 
 %Calculation of e, a and theta1 (eliptic or hyperbolic)
 if eliptic == true

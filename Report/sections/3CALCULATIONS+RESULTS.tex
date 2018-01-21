@@ -1,7 +1,7 @@
 \chapter{Calculations and results}
 
 \section{Verification}
-In order to verify the code the examples shown at reference \cite{treballsMO} REFERENCIA INCOGNITA XXXX will be used. In this section the results provided for every example will be exposed together with the results obtained using the code developed for this project and conclusions will be extracted.
+In order to verify the code the examples shown at reference \cite{CalafEnunciat} will be used. In this section the results provided for every example will be exposed together with the results obtained using the code developed for this project and conclusions will be extracted.
 \subsection{From Earth to Mars using an elliptic heliocentric trajectory}
 \begin{table}[H]
 \centering
@@ -37,19 +37,20 @@ Heliocentric velocity at arrival (km/s) & (20.4069,8.2271,0.3656)    \\
 \centering
 \begin{tabular}{|lc|}
 \hline
-Semimajor axis                          & 1.3307 AU      \\ 
-Eccentricity                           & 0.2363         \\ 
-$\theta _0$                     &                   \\
-$\omega$                           & 0.3880\degree                            \\ 
-Inclination                          & 1.4339\degree                             \\ 
-$\Omega$                & 296.5149\degree                                   \\ 
+Semimajor axis                          & 1.33073 AU      \\ 
+Eccentricity                           & 0.236291         \\ 
+$\theta _0$         & 359.613\degree                   \\
+$\omega$                           & 0.386861\degree                            \\ 
+Inclination                          & 1.43388\degree                             \\ 
+$\Omega$                & 296.515\degree                                   \\ 
 Heliocentric velocity at departure (km/s) & \\ 
 Heliocentric velocity at arrival (km/s)&    \\
 \hline
 \end{tabular}
 \caption{Results computed by the code developed for the first example}
 \end{table}
-\subsection{Mars to Jupiter using an elliptic heliocentric trajectory}
+
+\subsection{From Mars to Jupiter using an elliptic heliocentric trajectory}
 \begin{table}[H]
 \centering
 \begin{tabular}{|lc|}
@@ -85,19 +86,19 @@ Heliocentric velocity at arrival (km/s) & (1.9715,7.9799,1.0552)    \\
 \centering
 \begin{tabular}{|lc|}
 \hline
-Semimajor axis                          &      \\ 
-Eccentricity                           &        \\ 
-$\theta _0$                     &                   \\
-$\omega$                           & \degree                            \\ 
-Inclination                          & 7.5084\degree                             \\ 
-$\Omega$                & \degree                                   \\ 
+Semimajor axis    &  3.45405    \\ 
+Eccentricity       & 0.592181        \\ 
+$\theta _0$                &     350.469\degree \\
+$\omega$             & 196.156\degree                            \\ 
+Inclination                          & 7.508444\degree                             \\ 
+$\Omega$          & 207.127\degree                                   \\ 
 Heliocentric velocity at departure (km/s) & \\ 
 Heliocentric velocity at arrival (km/s)&    \\
 \hline
 \end{tabular}
 \caption{Results computed by the code developed for the second example}
 \end{table}
-\subsection{Earth to Mars using an hyperbolic heliocentric trajectory}
+\subsection{From Earth to Mars using an hyperbolic heliocentric trajectory}
 
 \begin{table}[H]
 \centering
@@ -133,21 +134,24 @@ Heliocentric velocity at arrival (km/s) & (35.1754,-6.3201,0.1148)    \\
 \centering
 \begin{tabular}{|lc|}
 \hline
-Semimajor axis                          &      \\ 
-Eccentricity                           &        \\ 
-$\theta _0$                     &                   \\
-$\omega$                           & \degree                            \\ 
-Inclination                          & \degree                             \\ 
-$\Omega$                & 345.6066\degree                                   \\ 
+Semimajor axis       &   71.6165   \\ 
+Eccentricity              & 1.01105       \\ 
+$\theta _0$      &   306.691\degree      \\
+$\omega$            & 233.309\degree                            \\ 
+Inclination                & 2.51416\degree                             \\ 
+$\Omega$            & 345.607\degree                                   \\ 
 Heliocentric velocity at departure (km/s) & \\ 
 Heliocentric velocity at arrival (km/s)&    \\
 \hline
 \end{tabular}
 \caption{Results computed by the code developed for the third example}
 \end{table}
+\subsection{Verification conclusions}
+It can be appreciated that in most of the cases the relative error is far less than one. The highest error produced is less than 10\%, and its cause probably deal with the equations and assumptions done while computing the results.\\
+The code is taken as valid and can be used in order to obtain other interplanetary trajectory. It has been done in a general manner so the same code can compute elliptic and hyperbolic trajectories with any departure and arrival planet in the solar system. 
 
 \section{Main interplanetary orbit calculations}
-The cases proposed in reference \ref{treballsMO} REFERENCIA INCOGNITA XXX will be solved. 
+The cases proposed in reference \cite{CalafEnunciat} will be solved. 
 \subsection{Case 1: Mars to Jupiter}
 
 \begin{table}[H]
@@ -163,6 +167,23 @@ $r_2$                          & (5.2210, 1.4357,0.1109)   \\ \hline
 \caption{Data provided for case 1}
 \end{table}
 
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Semimajor axis       &     \\ 
+Eccentricity              &       \\ 
+$\theta _0$      &   \degree      \\
+$\omega$            & \degree                            \\ 
+Inclination                & \degree                             \\ 
+$\Omega$            & \degree                                   \\ 
+Heliocentric velocity at departure (km/s) & \\ 
+Heliocentric velocity at arrival (km/s)&    \\
+\hline
+\end{tabular}
+\caption{Results computed for case 1}
+\end{table}
+
 \subsection{Case 2: Earth to Mars}
 
 \begin{table}[H]
@@ -176,6 +197,23 @@ $r_1$                          & (0.9848, 0.1338, 0.0000)  \\
 $r_2$                          & (0.6797, 1.2298,0.0424)   \\ \hline
 \end{tabular}
 \caption{Data provided for case 2}
+\end{table} 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Semimajor axis       &     \\ 
+Eccentricity              &       \\ 
+$\theta _0$      &   \degree      \\
+$\omega$            & \degree                            \\ 
+Inclination                & \degree                             \\ 
+$\Omega$            & \degree                                   \\ 
+Heliocentric velocity at departure (km/s) & \\ 
+Heliocentric velocity at arrival (km/s)&    \\
+\hline
+\end{tabular}
+\caption{Results computed for case 2}
 \end{table}
 \subsection{Case 3: Earth to Mars}
 \begin{table}[H]
@@ -191,6 +229,22 @@ $r_2$                          & (0.0108, 1.4542,0.0309)   \\ \hline
 \caption{Data provided for case 3}
 \end{table}
 
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Semimajor axis       &     \\ 
+Eccentricity              &       \\ 
+$\theta _0$      &   \degree      \\
+$\omega$            & \degree                            \\ 
+Inclination                & \degree                             \\ 
+$\Omega$            & \degree                                   \\ 
+Heliocentric velocity at departure (km/s) & \\ 
+Heliocentric velocity at arrival (km/s)&    \\
+\hline
+\end{tabular}
+\caption{Results computed for case 3}
+\end{table}
 \subsection{Case 4: Earth to Mars}
 
 \begin{table}[H]
@@ -206,6 +260,22 @@ $r_2$                          & (0.6775, 1.3571,0.0118)   \\ \hline
 \caption{Data provided for case 4}
 \end{table}
 
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Semimajor axis       &     \\ 
+Eccentricity              &       \\ 
+$\theta _0$      &   \degree      \\
+$\omega$            & \degree                            \\ 
+Inclination                & \degree                             \\ 
+$\Omega$            & \degree                                   \\ 
+Heliocentric velocity at departure (km/s) & \\ 
+Heliocentric velocity at arrival (km/s)&    \\
+\hline
+\end{tabular}
+\caption{Results computed for case 4}
+\end{table}
 \subsection{Case 5: Earth to Venus}
  \begin{table}[H]
 \centering
@@ -220,6 +290,22 @@ $r_2$                          & (0.0356, 0.7189,0.0079)   \\ \hline
 \caption{Data provided for case 5}
 \end{table}
 
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Semimajor axis       &     \\ 
+Eccentricity              &       \\ 
+$\theta _0$      &   \degree      \\
+$\omega$            & \degree                            \\ 
+Inclination                & \degree                             \\ 
+$\Omega$            & \degree                                   \\ 
+Heliocentric velocity at departure (km/s) & \\ 
+Heliocentric velocity at arrival (km/s)&    \\
+\hline
+\end{tabular}
+\caption{Results computed for case 5}
+\end{table}
 \subsection{Case 6: Mars to Earth}
 
 \begin{table}[H]
@@ -233,6 +319,23 @@ $r_1$                          & (1.5831, 0.3913, 0.0306)  \\
 $r_2$                          & (0.9123, 0.4340,0.0000)   \\ \hline
 \end{tabular}
 \caption{Data provided for case 6}
+\end{table}
+ 
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Semimajor axis       &     \\ 
+Eccentricity              &       \\ 
+$\theta _0$      &   \degree      \\
+$\omega$            & \degree                            \\ 
+Inclination                & \degree                             \\ 
+$\Omega$            & \degree                                   \\ 
+Heliocentric velocity at departure (km/s) & \\ 
+Heliocentric velocity at arrival (km/s)&    \\
+\hline
+\end{tabular}
+\caption{Results computed for case 6}
 \end{table}
 \subsection{Case 7: Mars to Earth}
 
@@ -249,6 +352,23 @@ $r_2$                          & (0.2345, 0.9893,0.0001)   \\ \hline
 \caption{Data provided for case 7}
 \end{table}
 
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Semimajor axis       &     \\ 
+Eccentricity              &       \\ 
+$\theta _0$      &   \degree      \\
+$\omega$            & \degree                            \\ 
+Inclination                & \degree                             \\ 
+$\Omega$            & \degree                                   \\ 
+Heliocentric velocity at departure (km/s) & \\ 
+Heliocentric velocity at arrival (km/s)&    \\
+\hline
+\end{tabular}
+\caption{Results computed for case 7}
+\end{table}
+
 \subsection{Case 8: Earth to Mars (hyperbolic)}
  \begin{table}[H]
 \centering
@@ -263,6 +383,22 @@ $r_2$                          & (-0.2082, -1.4582,-0.0255)   \\ \hline
 \caption{Data provided for case 8}
 \end{table}
 
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Semimajor axis       &     \\ 
+Eccentricity              &       \\ 
+$\theta _0$      &   \degree      \\
+$\omega$            & \degree                            \\ 
+Inclination                & \degree                             \\ 
+$\Omega$            & \degree                                   \\ 
+Heliocentric velocity at departure (km/s) & \\ 
+Heliocentric velocity at arrival (km/s)&    \\
+\hline
+\end{tabular}
+\caption{Results computed for case 8}
+\end{table}
 \subsection{Case 9: Earth to Mars (hyperbolic)}
 
 \begin{table}[H]
@@ -276,4 +412,21 @@ $r_1$                          & (-0.4079, 0.8950, 0.0000)  \\
 $r_2$                          & (0.6393, -1.2542,-0.0420)   \\ \hline
 \end{tabular}
 \caption{Data provided for case 9}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|lc|}
+\hline
+Semimajor axis       &     \\ 
+Eccentricity              &       \\ 
+$\theta _0$      &   \degree      \\
+$\omega$            & \degree                            \\ 
+Inclination                & \degree                             \\ 
+$\Omega$            & \degree                                   \\ 
+Heliocentric velocity at departure (km/s) & \\ 
+Heliocentric velocity at arrival (km/s)&    \\
+\hline
+\end{tabular}
+\caption{Results computed for case 9}
 \end{table}
