@@ -6,11 +6,11 @@ Methode imposes: t1, t2
 %}
 %% INPUT DATA
 % Define input data files
-NAME_INPUT_DATA = 'MarsJupiter1' ;
+NAME_INPUT_DATA = 'EarthMars2' ;
 % Load data files
 eval(NAME_INPUT_DATA);
 %Define type of trajectory (eliptic or hiperbolic)
-eliptic=true;
+eliptic=false;
 
 Omega=0; omega=0; %initialize values
 
@@ -34,7 +34,7 @@ dLamb=zeroto2pi(lambda2-lambda1); %[rad]
 %% Inclination, dTheta and Omega calculation (general case, page 18 t5b)
 dTheta=acosd(sin(beta1)*sin(beta2)+cos(beta1)*cos(beta2)*cos(dLamb));%[º]
 A=asin(cos(beta2)*sin(dLamb)/sind(dTheta)); %[rad]
-inc=acosd(sin(A)*cos(beta1))*(beta2-beta1)/abs(beta2-beta2); %[º] multiplied by the sign 
+inc=acosd(sin(A)*cos(beta1))*(beta2-beta1)/abs(beta2-beta1); %[º] multiplied by the sign 
                                                %of incbeta because if incbeta<0, then i<0
 if inc<0
     Omega=pi;
