@@ -72,7 +72,9 @@ a=\frac{r_1\left(1+e\cos\theta _1\right)}{1-e^2}
 t_2-t_1=\frac{365.25}{2\pi}a^\frac{3}{2}\Bigg(2\arctan\bigg(\sqrt{\frac{1-e}{1+e}}\tan\frac{\theta _1 +\Delta\theta}{2}\bigg)\\-\frac{e\sqrt{1-e^2}\sin (\theta _1+\Delta\theta)}{1+e\cos (\theta _1+\Delta\theta}-2\arctan\bigg(\sqrt{\frac{1-e}{1+e}}\tan \frac{\theta _1}{2}\bigg)+\frac{e\sqrt{1-e^2}\sin \theta _1}{1+e\cos \theta1}\Bigg)
 \end{multline}
 
-The iteration process done to solve the equations will deal with the difference between the time of the mission calculated and the real time of the mission, that is a known value. An error criteria $\epsilon$ is defined as the convergence value. The flow chart of this iteration is shown in Figure \ref{Floweliptic}.
+The iteration process done to solve the equations will deal with the difference between the time of the mission calculated and the real time of the mission, that is a known value. An error criteria $\epsilon$ is defined as the convergence value. Since the convergence criteria gives a difference in terms of time and the tuning parameter is an angle, there is no possibility to develop an adaptive increase step for $\theta_1$ (due to their completely different physical meaning). However, a kind of \textit{intelligent} convergence can be applied involving the sign of the time difference multiplying the $\theta$ step by the time error and dividing it by the time error absolute value.
+
+Another issue related to the algorithm based on tuning an angle is the possibility of entering into a loop between two results if the step used is not small enough. To solve this problem, the algorithm includes a procedure to detect this situation and reduce the $\theta$ step in order to avoid the loop. The flow chart of this iteration (without the details of the aforementioned convergence system) is shown in Figure \ref{Floweliptic}.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{././images/flowcharteliptic.jpg} 
