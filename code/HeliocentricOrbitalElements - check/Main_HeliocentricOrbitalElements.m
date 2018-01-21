@@ -6,11 +6,11 @@ Methode imposes: t1, t2
 %}
 %% INPUT DATA
 % Define input data files
-NAME_INPUT_DATA = 'EarthMars2' ;
+NAME_INPUT_DATA = 'MarsJupiter1' ;
 % Load data files
 eval(NAME_INPUT_DATA);
 %Define type of trajectory (eliptic or hiperbolic)
-eliptic=false;
+eliptic=true;
 
 Omega=0; omega=0; %initialize values
 
@@ -57,7 +57,8 @@ end
 if eliptic == true
     disp('Computing eliptic trajectory...');
     [e, a, theta1]=Computeeliptic(r1,r2,dt,dTheta);
-    if theta1>=360.001
+    theta1=radtodeg(theta1);
+    if theta1>360
         disp('No theta possible');
     elseif theta1<0
         theta1=360+theta1;
@@ -65,6 +66,7 @@ if eliptic == true
 else
     disp('Computing hyperbolic trajectory...');
     [e, a, theta1]=Computehyperbolic(r1,r2,dt,dTheta);
+    theta1=radtodeg(theta1);
     if theta1>360
         disp('No theta possible');
     elseif theta1<0
@@ -76,3 +78,6 @@ omega=omega+2*pi-(degtorad(theta1)-sigma); %[rad]
 omega=radtodeg(omega);
 
 
+%% PRINT
+fprintf('a = %g AU;\te = %g;\ttheta_0 = %g deg;\nw = %g deg;\ti = %g deg;\tW = %g deg',...
+    a,e,theta1,omega,inc,Omega);

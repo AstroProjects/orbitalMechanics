@@ -15,7 +15,7 @@ loopVal=0;
 maxLoopVal=2;
 
 %% LOOP
-while (error>delta) && theta1<2*pi+dtheta
+while (error>delta) && theta1<=2*pi
     %1. Eccentricity calculation. Its value has to be between 0 and 1
     e = (r2-r1)/(r1*cos(theta1)-r2*cos(theta1+dTheta));
     

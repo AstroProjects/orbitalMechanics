@@ -12,10 +12,10 @@ dtheta=1e-4;
 %avoid looping between 2 values
 errorArray=zeros(2,1);
 loopVal=0;
-maxLoopVal=2;
+maxLoopVal=3;
 
 %% LOOP
-while (error>delta) && (theta1<2*pi+dtheta)
+while (error>delta) && (theta1<=2*pi)
     %1. Eccentricity calculation. Its value has to be higher than 1
     e=(r2-r1)/(r1*cos(theta1)-r2*cos(theta1+dTheta));
 %     e = abs(e);
