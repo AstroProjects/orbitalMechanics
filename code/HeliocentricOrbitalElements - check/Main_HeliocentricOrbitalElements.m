@@ -82,3 +82,5 @@ omega=radtodeg(omega);
 %% PRINT
 fprintf('\n\na = %g AU;\te = %g;\ttheta_0 = %g deg;\nw = %g deg;\ti = %g deg;\tW = %g deg\n',...
     a,e,theta1,omega,inc,Omega);
+
+%% Planet velocities
