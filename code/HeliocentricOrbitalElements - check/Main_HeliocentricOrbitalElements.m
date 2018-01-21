@@ -147,3 +147,23 @@ fprintf('\n\nVs(t1) = [%g, %g, %g] km/s\nVs(t2) = [%g, %g, %g] km/s\n',...
 fprintf('\n\nCOMPROVACIÓ\nr1(t1) = [%g, %g, %g] AU\nr2(t2) = [%g, %g, %g] AU\n',...
     r1bis(1),r1bis(2),r1bis(3),r2bis(1),r2bis(2),r2bis(3));
 %% Planet velocities
+
+%% Plot traj
+%using the 2nd method described in tema2 (pg59)
+cO=cosd(Omega); sO=sind(Omega);
+co=cosd(omega); so=sind(omega);
+ci=cosd(inc); si=sind(inc);
+P=[cO*co-sO*ci*so, sO*co+cO*ci*so, si*so];
+Q=[-cO*so-sO*ci*co, -sO*so+cO*ci*co si*co];
+p=a*(e^2-1);
+if eliptic; p=-p; end
+ 
+th=linspace(theta1, theta1+dTheta, 100);
+r=zeros(length(th),3);
+for i=1:length(th)
+    r(i,:)=p/(1+e*cosd(th(i)))*(cosd(th(i))*P+sind(th(i))*Q);
+end
+figure;hold on;
+plot3(r(:,1),r(:,2),r(:,3));
+scatter3(rT_t1(1), rT_t1(2), rT_t1(3),80,'filled','markerfacecolor','c');
+scatter3(rM_t2(1), rM_t2(2), rM_t2(3),70,'filled','markerfacecolor','r');
