@@ -84,4 +84,31 @@ omega=radtodeg(omega);
 fprintf('\n\na = %g AU;\te = %g;\ttheta_0 = %g deg;\nw = %g deg;\ti = %g deg;\tW = %g deg\n',...
     a,e,theta1,omega,inc,Omega);
 
+%% Heliocentric velocities
+method=2;
+if method==2
+    %using the 2nd method described in tema2 (pg59)
+    cO=cosd(Omega); sO=sind(Omega);
+    co=cosd(omega); so=sind(omega);
+    ci=cosd(inc); si=sind(inc);
+    P=[cO*co-sO*ci*so, sO*co+cO*ci*so, si*so];
+    Q=[-cO*so-sO*ci*co, -sO*so+cO*ci*co si*co];
+    p=a*(e^2-1);
+    if eliptic; p=-p; end
+
+    v1=1/1e3*sqrt(muS/(p*1.496e11))*(-sind(theta1)*P+(e+cosd(theta1))*Q);
+    v2=1/1e3*sqrt(muS/(p*1.496e11))*(-sind(dTheta+theta1)*P+(e+cosd(dTheta+theta1))*Q);
+    
+    %prova de verificació resultats
+    r1bis=p/(1+e*cosd(theta1))*(cosd(theta1)*P+sind(theta1)*Q);
+    r2bis=p/(1+e*cosd(theta1+dTheta))*(cosd(theta1+dTheta)*P+sind(theta1+dTheta)*Q);
+elseif method==1
+end
+    
+
+fprintf('\n\nVs(t1) = [%g, %g, %g] km/s\nVs(t2) = [%g, %g, %g] km/s\n',...
+    v1(1),v1(2),v1(3),v2(1),v2(2),v2(3));
+
+fprintf('\n\nCOMPROVACIÓ\nr1(t1) = [%g, %g, %g] AU\nr2(t2) = [%g, %g, %g] AU\n',...
+    r1bis(1),r1bis(2),r1bis(3),r2bis(1),r2bis(2),r2bis(3));
 %% Planet velocities
