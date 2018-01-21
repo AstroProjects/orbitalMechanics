@@ -6,11 +6,11 @@ Methode imposes: t1, t2
 %}
 %% INPUT DATA
 % Define input data files
-NAME_INPUT_DATA = 'EarthMars2' ;
+NAME_INPUT_DATA = 'EarthMars4' ;
 % Load data files
 eval(NAME_INPUT_DATA);
 %Define type of trajectory (eliptic or hiperbolic)
-eliptic=false;
+eliptic=true;
 %For the hyperbolic case, define if inclination has result positive or
 %negative
 ipositive=true;
@@ -34,7 +34,10 @@ if inc<0
     ipositive=false;
     inc=abs(inc);
 end
-L=asin(tan(beta1)/tand(inc));%[rad]
+if inc > 90 
+    inc = 180 - inc;
+end
+L=asin(tan(beta1)/tand(inc));%[rad] 
 sigma=atan(tan(beta1)/cos(A));%[rad]
 Omega=lambda1-L; %[rad]
 if ipositive == false
@@ -54,21 +57,21 @@ if eliptic == true
     if theta1>=360.001
         disp('No theta possible');
     elseif theta1<0
-        theta1=360+theta1
+        theta1=360+theta1;
     end
 else
     disp('Computing hyperbolic trajectory...');
     [e, a, theta1]=Computehyperbolic(r1,r2,dt,dTheta);
-    if theta1>=360.001
+    if theta1>360
         disp('No theta possible');
     elseif theta1<0
-        theta1=360+theta1
+        theta1=360+theta1;
     end
 end
 
 omega=2*pi-(degtorad(theta1)-sigma); %[rad]
 if ipositive == false
-    omega=pi+omega
+    omega=pi+omega;
 end
 omega=radtodeg(omega);
 
