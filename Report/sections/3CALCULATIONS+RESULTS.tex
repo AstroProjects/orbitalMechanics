@@ -43,11 +43,29 @@ $\theta _0$         & 359.613\degree                   \\
 $\omega$                           & 0.386861\degree                            \\ 
 Inclination                          & 1.43388\degree                             \\ 
 $\Omega$                & 296.515\degree                                   \\ 
-Heliocentric velocity at departure (km/s) & \\ 
-Heliocentric velocity at arrival (km/s)&    \\
+Heliocentric velocity at departure (km/s) & (29.367,14.6986,0.822024) \\ 
+Heliocentric velocity at arrival (km/s)&   (-20.4068,8.27743,-0.364583) \\
 \hline
 \end{tabular}
 \caption{Results computed by the code developed for the first example}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|cc|}
+\hline
+\textbf{Parameter}   & \textbf{Relative error (\%)} \\ \hline
+a           & 0.0030              \\
+e           & 0.0004              \\
+$\theta _0$ & 0.0022              \\
+$\omega$    & 17.6891              \\
+i           & 0.0780              \\
+$\Omega$    & 0.0307              \\
+$v_{t_1}$   & 0.0017              \\
+$v_{t_1}$   & 0.0001              \\ \hline
+\end{tabular}
+\caption{Relative error in the first example}
 \end{table}
 
 \subsection{From Mars to Jupiter using an elliptic heliocentric trajectory}
@@ -92,12 +110,30 @@ $\theta _0$                &     350.469\degree \\
 $\omega$             & 196.156\degree                            \\ 
 Inclination                          & 7.508444\degree                             \\ 
 $\Omega$          & 207.127\degree                                   \\ 
-Heliocentric velocity at departure (km/s) & \\ 
-Heliocentric velocity at arrival (km/s)&    \\
+Heliocentric velocity at departure (km/s) & (-19.0894,24.8148,-4.05809)\\ 
+Heliocentric velocity at arrival (km/s)&    (3.83725,-7.26513,1.08284)\\
 \hline
 \end{tabular}
 \caption{Results computed by the code developed for the second example}
 \end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|cc|}
+\hline
+\textbf{Parameter}   & \textbf{Relative error (\%)} \\ \hline
+a           & 0.0006              \\
+e           & 0.0002              \\
+$\theta _0$ & 0.0000              \\
+$\omega$    & 7.5936              \\
+i           & 0.0606              \\
+$\Omega$    & 0.0029              \\
+$v_{t_1}$   & 0.0014              \\
+$v_{t_1}$   & 0.0001              \\ \hline
+\end{tabular}
+\caption{Relative error in the second example}
+\end{table}
+
 \subsection{From Earth to Mars using an hyperbolic heliocentric trajectory}
 
 \begin{table}[H]
@@ -140,11 +176,28 @@ $\theta _0$      &   306.691\degree      \\
 $\omega$            & 233.309\degree                            \\ 
 Inclination                & 2.51416\degree                             \\ 
 $\Omega$            & 345.607\degree                                   \\ 
-Heliocentric velocity at departure (km/s) & \\ 
-Heliocentric velocity at arrival (km/s)&    \\
+Heliocentric velocity at departure (km/s) & (9.13562,-41.4082,-1.66139)\\ 
+Heliocentric velocity at arrival (km/s)&    (35.1747,-6.31841,0.115199)\\
 \hline
 \end{tabular}
 \caption{Results computed by the code developed for the third example}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|cc|}
+\hline
+\textbf{Parameter}   & \textbf{Relative error (\%)} \\ \hline
+a           & 0.7465              \\
+e           & 0.0079              \\
+$\theta _0$ & 0.0003              \\
+$\omega$    & 0.0051              \\
+i           & 0.0462              \\
+$\Omega$    & 0.0035              \\
+$v_{t_1}$   & 0.1189              \\
+$v_{t_1}$   & 0.0028              \\ \hline
+\end{tabular}
+\caption{Relative error in the third example}
 \end{table}
 \subsection{Verification conclusions}
 It can be appreciated that in most of the cases the relative error is far less than one. The highest error produced is less than 10\%, and its cause probably deal with the equations and assumptions done while computing the results.\\
@@ -171,14 +224,14 @@ $r_2$                          & (5.2210, 1.4357,0.1109)   \\ \hline
 \centering
 \begin{tabular}{|lc|}
 \hline
-Semimajor axis       &     \\ 
-Eccentricity              &       \\ 
-$\theta _0$      &   \degree      \\
-$\omega$            & \degree                            \\ 
-Inclination                & \degree                             \\ 
-$\Omega$            & \degree                                   \\ 
-Heliocentric velocity at departure (km/s) & \\ 
-Heliocentric velocity at arrival (km/s)&    \\
+Semimajor axis       &  4.27012   \\ 
+Eccentricity         &    0.725509   \\ 
+$\theta _0$      &  302.422 \degree      \\
+$\omega$            & 63.3568\degree                            \\ 
+Inclination        & 2.14985\degree                             \\ 
+$\Omega$        & 36.89\degree                                   \\ 
+Heliocentric velocity at departure (km/s) & (-29.1352,12.6808,1.03727) \\ 
+Heliocentric velocity at arrival (km/s)&    (4.72014,-9.86931,-0.402679)\\
 \hline
 \end{tabular}
 \caption{Results computed for case 1}
@@ -203,14 +256,14 @@ $r_2$                          & (0.6797, 1.2298,0.0424)   \\ \hline
 \centering
 \begin{tabular}{|lc|}
 \hline
-Semimajor axis       &     \\ 
-Eccentricity              &       \\ 
-$\theta _0$      &   \degree      \\
-$\omega$            & \degree                            \\ 
-Inclination                & \degree                             \\ 
-$\Omega$            & \degree                                   \\ 
-Heliocentric velocity at departure (km/s) & \\ 
-Heliocentric velocity at arrival (km/s)&    \\
+Semimajor axis     & 1.37053    \\ 
+Eccentricity        &    0.615632   \\ 
+$\theta _0$    &   256.507\degree      \\
+$\omega$        & 103.493\degree                            \\ 
+Inclination         & 2.15438\degree                             \\ 
+$\Omega$            & 7.73712\degree                                   \\ 
+Heliocentric velocity at departure (km/s) & (-22.8707,24.7746,1.03934)\\ 
+Heliocentric velocity at arrival (km/s)&    (9.73264,-22.7879,-0.898741)\\
 \hline
 \end{tabular}
 \caption{Results computed for case 2}
@@ -233,14 +286,20 @@ $r_2$                          & (0.0108, 1.4542,0.0309)   \\ \hline
 \centering
 \begin{tabular}{|lc|}
 \hline
-Semimajor axis       &     \\ 
-Eccentricity              &       \\ 
-$\theta _0$      &   \degree      \\
-$\omega$            & \degree                            \\ 
-Inclination                & \degree                             \\ 
-$\Omega$            & \degree                                   \\ 
-Heliocentric velocity at departure (km/s) & \\ 
-Heliocentric velocity at arrival (km/s)&    \\
+Semimajor axis       &  1.24706
+   \\ 
+Eccentricity              &   0.381113
+    \\ 
+$\theta _0$      &  282.584
+ \degree      \\
+$\omega$            & 77.5612
+\degree                            \\ 
+Inclination                & 2.29274
+\degree                             \\ 
+$\Omega$            & 57.8117
+\degree                                   \\ 
+Heliocentric velocity at departure (km/s) & (-48.5598,30.3938,2.29362) \\ 
+Heliocentric velocity at arrival (km/s)&   (20.646,-0.03366,-0.70028) \\
 \hline
 \end{tabular}
 \caption{Results computed for case 3}
