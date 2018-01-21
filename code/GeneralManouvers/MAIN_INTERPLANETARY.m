@@ -5,7 +5,8 @@ Spacecraft trajectory form SOI of planet1 to that of planet 2
 %}
 %% INPUT DATA
 % Define input data files
-NAME_INPUT_DATA = 'EarthMars_hyp' ;
+addpath('cases');
+NAME_INPUT_DATA = 'EarthMarsC2' ;
 % Load data files
 eval(NAME_INPUT_DATA);
 
