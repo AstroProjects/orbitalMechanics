@@ -11,9 +11,8 @@ NAME_INPUT_DATA = 'EarthMars2' ;
 eval(NAME_INPUT_DATA);
 %Define type of trajectory (eliptic or hiperbolic)
 eliptic=false;
-%For the hyperbolic case, define if inclination has result positive or
-%negative
-ipositive=true;
+
+Omega=0; omega=0; %initialize values
 
 %% Initial calculation with r vector (pag30 t5b):
 r1=norm(rT_t1);
@@ -40,18 +39,13 @@ inc=acosd(sin(A)*cos(beta1))*beta2/abs(beta2); %[º] multiplied by the sign
 if inc<0
     Omega=pi;
     omega=pi;
-    inc=abs(inc);
-    
-end
-if inc > 90 
+    inc=abs(inc); 
+elseif inc > 90 
     inc = 180 - inc;
 end
 L=asin(tan(beta1)/tand(inc));%[rad] 
 sigma=atan(tan(beta1)/cos(A));%[rad]
-Omega=lambda1-L; %[rad]
-if ipositive == false
-    Omega=pi+Omega;
-end
+Omega=Omega+lambda1-L; %[rad]
 Omega=radtodeg(Omega);
 if Omega<0
     Omega=360+Omega;
@@ -78,10 +72,7 @@ else
     end
 end
 
-omega=2*pi-(degtorad(theta1)-sigma); %[rad]
-if ipositive == false
-    omega=pi+omega;
-end
+omega=omega+2*pi-(degtorad(theta1)-sigma); %[rad]
 omega=radtodeg(omega);
 
 
