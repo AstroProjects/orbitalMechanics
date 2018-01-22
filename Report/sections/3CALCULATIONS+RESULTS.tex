@@ -581,8 +581,13 @@ Heliocentric velocity at arrival (km/s)&   (36.9836
 	\subsection{Launch windows computation}
 \paragraph{}	For the first given example, Earth to Mars trip, same used in the previous section, the launch window is computed using the algorithm from the appendix A.2.2.
 \begin{align*}
-	C=(15.9199^h, 0.6188rad)  \qquad \qquad R=3.2497e3 km
+	C=(15.9199^h, 0.6188rad)  \qquad \qquad R=3.2497\cdot10^3 km
 \end{align*}
+C is given in equatorial coordinates.
 
 These results indicates the area (from radius R) where the spacecraft can leave Earth and where it needs to apply the impulse (C point). Knowing the launching site, the launch window availability time could be computed. 
+
+This calculus is generic and could be computed for all studied cases. All parameters are extracted from the main code and planetary departure code, but the Earth heliocentric velocity is computed with \cite{llibreVictor} equations and checked with the given by NASA ephemerides.
+
+
 	
