@@ -1,0 +1,20 @@
+\chapter{Developed algorithms}
+All developed algorithm, had been computed with Matlab scripts. All of them, are attached together with the report, on a zip file for delivery. Following, developed algorithms concept and structure will be outlined.
+	\section{Main code purpose and algorithm}
+	\paragraph{} Main code implemented, \textit{Main\_HeliocentricOrbitalElements.m}, calculates the heliocentric stage related parameters of the PCA, in a generic way. The implemented algorithm is:
+	\begin{enumerate}
+		\item \textbf{Load input data}: Obtain departure and arrival dates, fly time in days, planets heliocentric positions for the departing day and $\mu_\odot$.
+		\item \textbf{Select kind of trajectory}: Trajectory can be elliptic or hyperbolic.
+		\item \textbf{Initial calculations}: Calculate $||\vec{r}||, \beta, \lambda, \Delta\lambda, \Omega, i, \sigma$.
+		\item \textbf{Iterate until convergence}: Find values $e, a, \theta_1$, by iterating the functions \textit{Computeeliptic.m} for elliptic cases or \textit{Computehyperbolic.m} for hyperbolic cases.
+		\item \textbf{Compute $\omega$}
+		\item \textbf{Compute SOI arrival and departure velocities}: Find \textit{PQW} parameters, for making the calculation.
+		
+	\end{enumerate}
+
+	\section{Secondary parameters code}
+	\paragraph{} These codes have been develop parallel to the main code. They are use full for interesting interplanetary missions parameters, but they are not the main objective to develop on this assignment. That is why, they are treated apart.  
+		\subsection{Hyperbolic scape geocentric velocities}
+		
+		\subsection{Launch windows}
+
