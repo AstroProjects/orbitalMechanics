@@ -109,9 +109,53 @@ The only remaining orbit element that needs to be computed is $\omega$. It can b
 \paragraph{Spacecraft velocity}
 Sphere Of Influence (SOI), departure and arrival velocities are computed under the following theoretical background.
 
-First of all, a geocentric coordinates system is considered, the orbital plane \textit{$PQW(\bar{x})$}
+First of all, a geocentric coordinates system is considered with the orbital plane \textit{$PQW(\bar{x}, \bar{y}, \bar{z})$}. The spacecraft orbit is situated on the system \textit{ECI-IJK}, seen on the following figure.
+\begin{figure}[H]
+	\centering
+	\includegraphics[clip, trim=0cm 0cm 0cm 0cm, width=0.85\textwidth]{./images/satelliteAxis}
+	\caption{ECI-\textit{IJK} system, extracted from \cite{PCA}.} %nom de la figura
+	\label{} %per denotar una referencia
+\end{figure}
 
+A series of rotations are done, for changing from the orbital plane \textit{PQW} to the equatorial \textit{IJK}. A, $\mathbb{M}$ rotation matrix is defined:
+\begin{equation*}
+	\mathbb{M}(\omega,i,\Omega) = \mathbb{R}_3(-\Omega)\cdot\mathbb{R}_3(-i)\cdot\mathbb{R}_3(-\omega)
+\end{equation*}
+with the following components:
+\begin{align}
+	\begin{split}
+		&\mathbb{M}_{11} = P_x = +\cos\Omega \ \cos \omega -\sin\Omega \ \cos i \ \sin\omega\\
+		&\mathbb{M}_{21} = P_y = +\sin\Omega \ \cos \omega +\cos\Omega \ \cos i \ \sin\omega\\
+		&\mathbb{M}_{31} = P_z = \sin i \ \sin\omega\\
+		&\mathbb{M}_{12} = Q_x = -\cos\Omega \ \sin \omega -\sin\Omega \ \cos i \ \cos\omega\\
+		&\mathbb{M}_{22} = Q_y = -\sin\Omega \ \sin \omega +\cos\Omega \ \cos i \ \cos\omega\\
+		&\mathbb{M}_{32} = Q_z = +\sin i \ \cos\omega\\
+		&\mathbb{M}_{13} = W_x = +\sin\Omega \sin i\\
+		&\mathbb{M}_{23} = W_y = -\cos\Omega \sin i\\
+		&\mathbb{M}_{33} = W_z = +\cos i\\
+	\end{split}	
+\end{align}
 
+Therefore, spacecraft geocentric position vector $\vec{r}$ is:
+\begin{equation}
+	\vec{r} = \bar{x}\vec{P}+\bar{y}\vec{Q} = x\vec{I}+y\vec{J}+z\vec{K}
+\end{equation}
+with
+\begin{equation}
+	\vec{P}=P_X\vec{I}+P_Y\vec{J}+P_Z\vec{K}
+\end{equation}
 
+Finally, heliocentric $\vec{r}$ and $\dot{\vec{r}}$ can be computed using $\vec{P},\ \vec{Q},\ \vec{W}$ unitary vectors, as
+\begin{align}
+	\vec{r} &= r[\cos\theta\cdot\vec{P}+\sin\theta\cdot\vec{Q}]\\
+	\dot{\vec{r}} &= \sqrt{\frac{\mu_\odot}{p}}[-\sin\theta\cdot\vec{P}+(e+\cos\theta)\cdot\vec{Q}]
+\end{align}
+taking into account that parameter \textit{p} is $p = a(1-e^2)$ for elliptic trajectories and $p = a(e^2-1)$ for hyperbolic ones.
 
+Also for computing $\vec{r}$ and $\dot{\vec{r}}$ for the departure and arrival cases, $\theta$, the true anomaly is
+\begin{align*}
+	\text{Departing SOI:}\ \theta = \theta_0 \qquad\qquad \text{Arriving SOI:}\ \theta = \theta_1 = theta_0 + \Delta\theta 
+\end{align*}
+
+In conclusion, for calculating the spacecraft heliocentric departure and arrival velocities to the SOI of each planet, previously the heliocentric orbital elements would have to be calculated following the equations exposed before the velocity paragraph. Because, for this study the planets position vectors are given, we can verify the correction of velocity equations $\dot{\vec{r}}$, comparing the given position vector with the one calculated,  $\vec{r}$, they should match. 
 
