@@ -7,7 +7,7 @@ Methode imposes: t1, t2
 %% INPUT DATA
 % Define input data files
 addpath('cases');
-NAME_INPUT_DATA = 'EarthMarsC4' ;
+NAME_INPUT_DATA = 'EarthMars1' ;
 % Load data files
 eval(NAME_INPUT_DATA);
 %Define type of trajectory (eliptic or hiperbolic)
@@ -23,13 +23,6 @@ beta2=asin(rM_t2(3)/r2); %[rad]
 lambda1=zeroto2pi(atan2(rT_t1(2),rT_t1(1))); %[rad]
 lambda2=zeroto2pi(atan2(rM_t2(2),rM_t2(1))); %[rad]
 dLamb=zeroto2pi(lambda2-lambda1); %[rad]
-
-% Potser langle era 3r quad ... pero no :(
-% lambda1s=rT_t1(2)/(r1*cos(beta1));
-% lambda1c=rT_t1(1)/(r1*cos(beta1));
-% lambda2s=rM_t2(2)/(r2*cos(beta2));
-% lambda2c=rM_t2(1)/(r2*cos(beta2));
-% dLamb=dLamb+pi;
 
 
 %% Inclination, dTheta and Omega calculation (general case, page 18 t5b)
