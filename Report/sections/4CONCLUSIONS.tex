@@ -1,1 +1,12 @@
 \chapter{Conclusions}
+\paragraph{} After performing this project, it can be said that orbital mechanics is not a trivial matter. This project, have been hard to start, because it took us some time to be familiar with the concepts and how they are explained through equations. But, we can finally say, that we understand the patched conics approximation at its all development and hypothesis.
+
+It is not been easy to implement the method explained during the lessons, mostly because at some point if concepts weren't clear enough, the convergence sections of the code failed to give a solution, normally because some variables where wrongly defined. Getting the code working well to verify the examples, excited us and its been such a relive, we feel fortunate to have consistent results. After this personal thoughts introduction we can extract some more conclusions.
+
+Main code implemented, demonstrated to work optimally for trajectories departing Earth to outer planets. Both trajectories, elliptical and hyperbolic, have been correctly compute as seen on the code verification. Nevertheless, as more cases we tried more little problems we get. Fact that, forced us to improve the code at every simulation, taking special care in not changes how it behaves with previous cases.
+
+So, after comparing some results from book \cite{llibreVictor} examples with our code, the code was accurate in most cases matching the parameters. It only presents troubles calculating inner planets trajectories, most likely, because, proper exceptions for this trajectories have not been implemented on the code yet. 
+
+One final though, after computing these trajectories, we see that years for travelling to Mars are coming. Around 2022, trips to Mars from Earth will took really few days, the are into the order of 100. This ideas totally matches with the fact that NASA and SpaceX, are developing their deep space exploration rockets for stepping humans into the red planet.
+
+Finally, is important to remark that, despite the complexity of implementing the patched conics approximation, this method is used as base for the numeric integration. If the results are not precise enough is not a problem, they will be refined on the numeric integration, the key of this method is his low computational effort, which has been demonstrated.

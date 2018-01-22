@@ -541,6 +541,42 @@ Heliocentric velocity at arrival (km/s)&   (36.9836
 
 \section{Complementary calculations}
 	\subsection{Earth SOI scape parameters}
+	\paragraph{} Applying the equations from the 1st geocentric stage, of the PCA. The first given example, Earth to Mars trip, planetary departure parameters are determined.
 	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|lc|}
+			\hline
+			Departure date              & 2020 Jul 19                \\ 
+			Arrival date                & 2021 Gen 25 \\ 
+			$\Delta$t                    & 190 days                   \\ 
+			$r_0$                          & 300 km  \\ 
+			$I_{sp}$                          & 300 s  \\
+			 \hline
+		\end{tabular}
+		\caption{Data provided for first example plus assumptions }
+	\end{table}
+	Note that $r_0$ is the initial circular parking orbit of the spacecraft and $I_{sp}$  is the specific impulse.
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|lc|}
+			\hline
+			Hyperbolic exceed speed, $v_\infty$              & 2.9439 km/s                \\ 
+			Spacecraft speed on parking orbit, $v_c$                & 7.7298 km/s\\ 
+			$\Delta$v                    & 3.5912 km/s                   \\ 
+			Perigee of departure hyperbola                          & 6671 km  \\ 
+			$\beta$                          & 29.1525 \textdegree \\
+			Spacecraft fuel percent among total mass                          & 70.48 \%  \\
+			\hline
+		\end{tabular}
+		\caption{Calculated parameter for the planetary scape.}
+	\end{table}
+	
+	Spacecraft fuel percent among total mass is calculated as
+	\begin{equation}
+		\%m_{fuel} = 1-e^{(-\frac{\Delta v}{I_{sp}g_0})}
+	\end{equation}
+	and for this particular example means that the 70.48\% of the total spacecraft weight will be the fuel that will burn in order to scape the Earth SOI.
 	\subsection{Launch windows computation}
 	
